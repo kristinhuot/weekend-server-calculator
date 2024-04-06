@@ -53,8 +53,8 @@ function divideInputs (event){
     operator = '/'}
 
 function clearInputs(event){
-    document.getElementById("numOneInput").textContent = ''; 
-    document.getElementById("numTwoInput").textContent = ''; 
+    document.getElementById("numOneInput").value = ''; 
+    document.getElementById("numTwoInput").value = ''; 
     }
 
 
