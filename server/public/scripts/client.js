@@ -63,8 +63,7 @@ function addCalculations(event){
 
     let numOne = document.getElementById("numOneInput").value; 
     let numTwo = document.getElementById("numTwoInput").value;
-    let operator = *********
-    
+       
     axios({
         method: 'POST',
         url: '/calculations',

@@ -46,7 +46,7 @@ app.post('/calculations', (req, res) => {
  let numTwo = Number(req.body.numTwo)
  let operator = req.body.operator
 
- let result = `${numOne} ${operator} ${numTwo}`
+ let result = numOne+operator+numTwo
 
  console.log('this is the result:', result);
 
