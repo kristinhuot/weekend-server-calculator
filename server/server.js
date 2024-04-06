@@ -39,6 +39,23 @@ app.get('/calculations', (req, res)=> {
 
 // POST /calculations
 
+app.post('/calculations', (req, res) => {
+  console.log('POST /calculations received a request!');
+  
+ let numOne = Number(req.body.numOne)
+ let numTwo = Number(req.body.numTwo)
+ let operator = req.body.operator
+
+ let result = `${numOne} ${operator} ${numTwo}`
+
+ console.log('this is the result:', result);
+
+  let calculationToAdd = req.body.result;
+  calculations.push(calculationToAdd);
+  
+  res.sendStatus(201);
+})
+
 
 
 

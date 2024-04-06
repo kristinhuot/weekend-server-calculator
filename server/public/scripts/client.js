@@ -56,3 +56,28 @@ function clearInputs(event){
     document.getElementById("numOneInput").textContent = ''; 
     document.getElementById("numTwoInput").textContent = ''; 
     }
+
+
+function addCalculations(event){
+    event.preventDefault(); 
+
+    let numOne = document.getElementById("numOneInput").value; 
+    let numTwo = document.getElementById("numTwoInput").value;
+    let operator = *********
+    
+    axios({
+        method: 'POST',
+        url: '/calculations',
+        data: {
+            numOne: numOne, numTwo: numTwo, operator: operator
+        }
+      }).then((response) => {
+        // The POST was successful, so we clear out the
+        // form inputs and call fetchAndRenderColors to
+        // bring the DOM back in sync with our data:
+        document.getElementById("numOneInput").textContent = ''; 
+        document.getElementById("numTwoInput").textContent = '';
+        fetchAndRenderCalculations(); 
+      })
+    }
+
