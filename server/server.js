@@ -10,11 +10,23 @@ app.use(express.static('server/public')); // serve up static files (HTML, CSS, C
 let calculations = [
 {
   numOne: 3,
-  NumTwo: 5, 
+  numTwo: 5, 
   operator: '+',
-}
+  result: 8
+},
+{
+  numOne: 1,
+  numTwo: 2, 
+  operator: '+',
+  result: 3
+}, 
+{
+  numOne: 5,
+  numTwo: 5, 
+  operator: '+',
+  result: 10
+}, 
 ]; 
-let operators = []; 
 
 // Here's a wonderful place to make some routes:
 
