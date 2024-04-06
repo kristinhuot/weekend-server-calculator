@@ -74,8 +74,8 @@ function addCalculations(event){
         // The POST was successful, so we clear out the
         // form inputs and call fetchAndRenderColors to
         // bring the DOM back in sync with our data:
-        document.getElementById("numOneInput").textContent = ''; 
-        document.getElementById("numTwoInput").textContent = '';
+        document.getElementById("numOneInput").value = ''; 
+        document.getElementById("numTwoInput").value = '';
         fetchAndRenderCalculations(); 
       })
     }
