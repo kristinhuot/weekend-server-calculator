@@ -52,3 +52,7 @@ function divideInputs (event){
     event.preventDefault()
     operator = '/'}
 
+function clearInputs(event){
+    document.getElementById("numOneInput").textContent = ''; 
+    document.getElementById("numTwoInput").textContent = ''; 
+    }
