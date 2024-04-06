@@ -45,13 +45,26 @@ app.post('/calculations', (req, res) => {
  let numOne = Number(req.body.numOne)
  let numTwo = Number(req.body.numTwo)
  let operator = req.body.operator
+ let result = 0; 
 
- let result = numOne+operator+numTwo
+ if (operator === '+') {
+  result = numOne + numTwo
+ }
+  else if (operator === '-'){
+  result = numOne - numTwo}
+  
+  else if (operator === '*'){
+  result = numOne * numTwo
+  }
+  else if (operator === '/') {
+  result = numOne / numTwo
+  }
 
  console.log('this is the result:', result);
 
-  let calculationToAdd = req.body.result;
-  calculations.push(calculationToAdd);
+  req.body.result = result;
+
+  calculations.push(req.body);
   
   res.sendStatus(201);
 })
