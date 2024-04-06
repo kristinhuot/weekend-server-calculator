@@ -7,7 +7,7 @@ function fetchAndRenderCalculations (){
         method: 'GET',
         url: '/calculations'
       }).then((response) => {
-        let calculationsFromServer = response.data; //sets a variable name to access the data from the server. The data is in the form of an object after Axios had its way with it 
+        let calculationsFromServer = response.data; //sets a variable name to access the data from the server. The data is in the form of an object via Axios 
   
         let resultToDOM = document.getElementById("recentResultInput"); // get location to put the result
       
@@ -34,3 +34,21 @@ function fetchAndRenderCalculations (){
     })}      
       
     fetchAndRenderCalculations(); 
+
+
+function addInputs (event){
+    event.preventDefault()
+    operator = '+'}
+
+function subtractInputs (event){
+    event.preventDefault()
+    operator = '-'}
+
+function multiplyInputs (event){
+    event.preventDefault()
+    operator = '*'}
+
+function divideInputs (event){
+    event.preventDefault()
+    operator = '/'}
+

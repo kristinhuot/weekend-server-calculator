@@ -11,12 +11,12 @@
 
     <form data-testid="calculator">
       <input data-testid="numOne" placeholder="First Number">
-      <button>+</button>
-      <button>-</button>
-      <button>*</button>
-      <button>/</button>
+      <button onclick="addInputs (event)">+</button>
+      <button onclick="subtractInputs (event)">-</button>
+      <button onclick="multiplyInputs (event)">*</button>
+      <button onclick="divideInputs (event)">/</button>
       <input data-testid="numTwo" placeholder="Second Number">
-      <button onclick="calculateInputs">=</button>
+      <button onclick="fetchAndRenderCalculations()">=</button>
       <button onclick="clearInputs">C</button>
     </form>
 
