@@ -1,6 +1,6 @@
 console.log('client.js is sourced!');
 
-let operator= '';   
+let operator= '';  // defines a variable for the operators  
 
 function fetchAndRenderCalculations (){
     axios({
@@ -33,47 +33,46 @@ function fetchAndRenderCalculations (){
         }
     })}      
       
-    fetchAndRenderCalculations(); 
+    fetchAndRenderCalculations(); // run function (will run when browser refreshes)
 
 
-function addInputs (event){
+function addInputs (event){ // addition button function to assign the operator 
     event.preventDefault()
     operator = '+'}
 
-function subtractInputs (event){
+function subtractInputs (event){ // subtraction button function to assign the operator 
     event.preventDefault()
     operator = '-'}
 
-function multiplyInputs (event){
+function multiplyInputs (event){ // multiplication button function to assign the operator 
     event.preventDefault()
     operator = '*'}
 
-function divideInputs (event){
+function divideInputs (event){ // division button function to assign the operator 
     event.preventDefault()
     operator = '/'}
 
-function clearInputs(event){
+function clearInputs(event){ // clear button function to clear inputted data 
     document.getElementById("numOneInput").value = ''; 
     document.getElementById("numTwoInput").value = ''; 
     }
 
+function addCalculations(event){ // POST function to add inputted data to the server 
+    event.preventDefault(); // prevent default as the inputs are within a form 
 
-function addCalculations(event){
-    event.preventDefault(); 
-
-    let numOne = document.getElementById("numOneInput").value; 
-    let numTwo = document.getElementById("numTwoInput").value;
+    let numOne = document.getElementById("numOneInput").value; // locate the value of input one
+    let numTwo = document.getElementById("numTwoInput").value; // locate the value of input two 
        
-    axios({
+    axios({ // send inputted data and operator to the server 
         method: 'POST',
         url: '/calculations',
         data: {
             numOne: numOne, numTwo: numTwo, operator: operator
         }
-      }).then((response) => {
-        // The POST was successful, so we clear out the
-        // form inputs and call fetchAndRenderColors to
-        // bring the DOM back in sync with our data:
+      }).then((response) => { // With a successful POST, clear out the form inputs and call 
+        // fetchAndRenderCalculations to render the data to the DOM and bring the DOM back in sync
+        // with our data 
+    
         document.getElementById("numOneInput").value = ''; 
         document.getElementById("numTwoInput").value = '';
         fetchAndRenderCalculations(); 

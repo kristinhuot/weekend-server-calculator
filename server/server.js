@@ -5,30 +5,31 @@ let PORT = process.env.PORT || 5000;
 app.use(express.json()); //teach my server to read incoming JSON data from my POST request
 app.use(express.static('server/public')); // serve up static files (HTML, CSS, Client JS)
 
-// Global variable that will contain all of the
-// calculation objects:
+// Global variable that will contain all of the calculation objects:
 let calculations = []; 
-
-// Here's a wonderful place to make some routes:
 
 // GET /calculations
 
 app.get('/calculations', (req, res)=> {
-  console.log('get /calculations received a request');
+  console.log('get /calculations received a request'); // gets the calculations array and sends back 
   res.send(calculations);
 })
 
 // POST /calculations
 
-app.post('/calculations', (req, res) => {
+app.post('/calculations', (req, res) => { // receive data from client side POST request 
   console.log('POST /calculations received a request!');
   
- let numOne = Number(req.body.numOne)
- let numTwo = Number(req.body.numTwo)
- let operator = req.body.operator
- let result = 0; 
+ let numOne = Number(req.body.numOne) // defines a variable for the received data. Forces data into being a number
+ // and accesses the numOne property data 
 
- if (operator === '+') {
+ let numTwo = Number(req.body.numTwo) // defines a variable for the received data. Forces data into being a number
+ // and accesses the numTwo property data 
+
+ let operator = req.body.operator // degines a variable for the received data. Accesses the operator data
+ let result = 0; // defines a variable for the result, to be later stuffed into the object 
+
+ if (operator === '+') { // if statement to 'do the math' of the calculations using the operator variable
   result = numOne + numTwo
  }
   else if (operator === '-'){
@@ -41,46 +42,14 @@ app.post('/calculations', (req, res) => {
   result = numOne / numTwo
   }
 
- console.log('this is the result:', result);
+  req.body.result = result; // stuffs the result variable into the object and gives it the value from 
+  // the above calculating 
 
-  req.body.result = result;
-
-  calculations.push(req.body);
+  calculations.push(req.body); // pushes the object that includes the result property into the 
+  // calculations array 
   
-  res.sendStatus(201);
+  res.sendStatus(201); // sends status back! 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
