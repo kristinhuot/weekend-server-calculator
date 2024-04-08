@@ -19,7 +19,7 @@ function fetchAndRenderCalculations (){
 
         // render the most recent result to the DOM 
         resultToDOM.innerHTML += ` 
-            <p>${ResultOne}</p>
+            <p><b>${ResultOne}</b></p>
         `
 
        let historyToDOM = document.getElementById("resultHistoryInput"); // get the location to the put the calculation history 
